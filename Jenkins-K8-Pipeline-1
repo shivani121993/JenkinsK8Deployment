@@ -36,13 +36,13 @@ pipeline {
             steps{
                 sh "chmod +x changeTag.sh"
                 sh "./changeTag.sh ${Image_Tag}"
-                sshagent(['kops-machine']) {
-                    sh "scp -o StrictHostKeyChecking=no services.yml node-app-pod.yml ec2-user@52.66.70.61:/home/ec2-user/"
+                sshagent(['K8-machine']) {
+                    sh "scp -o StrictHostKeyChecking=no services.yml node-app-pod.yml ubuntu@3.94.106.39:/home/ubuntu/"
                     script{
                         try{
-                            sh "ssh ec2-user@52.66.70.61 kubectl apply -f ."
+                            sh "ssh ubuntu@3.94.106.39 kubectl apply -f ."
                         }catch(error){
-                            sh "ssh ec2-user@52.66.70.61 kubectl create -f ."
+                            sh "ssh ubuntu@3.94.106.39 kubectl create -f ."
                         }
                     }
                 }
