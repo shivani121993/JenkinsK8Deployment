@@ -7,6 +7,6 @@ metadata:
 spec:
   containers:
     - name: nodeapp
-      image: 117227220849.dkr.ecr.us-east-1.amazonaws.com/jenkins-ecr-1:tagversion
+      image: 117227220849.dkr.ecr.us-east-1.amazonaws.com/jenkins-ecr-1:tagVersion
       ports:
         - containerPort: 8080
